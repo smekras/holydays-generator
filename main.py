@@ -52,7 +52,7 @@ def main():
     fasts = fasting.generate_fasts(y)
 
     for i in days:
-        if i.month < 2 and i.day < 23:
+        if i.month < 2 and i.day < 32:
             religious = assemble_holidays(i)
             names = assemble_names(i)
             secular = assemble_secular(i)

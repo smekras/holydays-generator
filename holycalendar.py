@@ -20,4 +20,6 @@ class HolyCalendar(Calendar):
                     for date in week:
                         if date.year == self.year:
                             days.append(date)
+
+        days = list(dict.fromkeys(days))
         return days
