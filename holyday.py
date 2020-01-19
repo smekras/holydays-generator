@@ -1,5 +1,12 @@
-import dicts
+"""
+author: Stergios Mekras
+
+email: stergios.mekras@gmail.com
+"""
+
 from datetime import datetime
+
+import dicts
 
 
 class Holyday:
@@ -36,4 +43,5 @@ class Holyday:
         for sec in self.secular:
             secular.append(dicts.secular[sec])
         secstr = ', '.join(secular)
+
         return secstr
