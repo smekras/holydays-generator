@@ -7,7 +7,6 @@ email: stergios.mekras@gmail.com
 import csv
 
 import holycalendar
-from dicts import fasting as f, phases as p
 from generators import religious_fixed as r, secular_fixed as s
 from holyday import Holyday
 from utils import moonphase, fasting
@@ -50,7 +49,6 @@ def assemble_secular(date):
     secular = []
     if date.day in s[date.month].keys():
         for i in s[date.month][date.day]["holiday"]:
-            print(i)
             secular.append(i)
 
     return secular
@@ -76,16 +74,17 @@ def main():
         holydays.append(Holyday(i, religious, names, fast, secular, phase))
 
     with open("files/%s.csv" % y, "w+") as csv_file:
-        csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+        csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for i in holydays:
-            date = i.date
+            date = i.get_date()
             rel = i.get_religious()
             names = i.get_namelist()
-            fast = f[i.fast][variant]
+            gap = ""
             sec = i.get_secular()
-            moon = p[i.moonphase][variant]
-            link = s[date.month][date.day]["link"]
-            csv_writer.writerow([date, rel, names, fast, sec, moon, link])
+            fast = i.fast  # fast = f[i.fast][variant]
+            moon = i.moonphase  # moon = p[i.moonphase][variant]
+            link = s[i.date.month][i.date.day]["link"]
+            csv_writer.writerow([date, rel, names, gap, sec, fast, moon, link])
 
     # with open("%s.csv" % y, "r") as csv_file:
     #     csv_reader = csv.reader(csv_file)

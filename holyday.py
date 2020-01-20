@@ -19,7 +19,7 @@ class Holyday:
         self.moonphase = moonphase
 
     def get_date(self):
-        return datetime.strftime(self.date, '%Y-%m-%d')
+        return int(datetime.strftime(self.date, '%Y%m%d'))
 
     def get_religious(self):
         holidays = []
