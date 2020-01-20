@@ -4,6 +4,8 @@ author: Stergios Mekras
 email: stergios.mekras@gmail.com
 """
 
+import csv
+
 import holycalendar
 from dicts import fasting as f, phases as p
 from generators import religious_fixed as r, secular_fixed as s
@@ -29,9 +31,17 @@ def assemble_names(date):
         name = r[date.month][date.day][i]["names_primary"]
         for _ in name:
             names.append(_)
+
+    for i in r[date.month][date.day]:
         name = r[date.month][date.day][i]["names_secondary"]
         for _ in name:
             names.append(_)
+
+    if not names:
+        for i in r[date.month][date.day]:
+            name = r[date.month][date.day][i]["names_unofficial"]
+            for _ in name:
+                names.append(_)
 
     return names
 
@@ -39,7 +49,8 @@ def assemble_names(date):
 def assemble_secular(date):
     secular = []
     if date.day in s[date.month].keys():
-        for i in s[date.month][date.day]:
+        for i in s[date.month][date.day]["holiday"]:
+            print(i)
             secular.append(i)
 
     return secular
@@ -64,9 +75,22 @@ def main():
         fast = fasts[i.month][i.day - 1]
         holydays.append(Holyday(i, religious, names, fast, secular, phase))
 
-    for i in holydays:
-        print(i.date, i.get_religious(), i.get_namelist(), f[i.fast][variant], i.get_secular(), p[i.moonphase][variant],
-              sep=", ")
+    with open("files/%s.csv" % y, "w+") as csv_file:
+        csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+        for i in holydays:
+            date = i.date
+            rel = i.get_religious()
+            names = i.get_namelist()
+            fast = f[i.fast][variant]
+            sec = i.get_secular()
+            moon = p[i.moonphase][variant]
+            link = s[date.month][date.day]["link"]
+            csv_writer.writerow([date, rel, names, fast, sec, moon, link])
+
+    # with open("%s.csv" % y, "r") as csv_file:
+    #     csv_reader = csv.reader(csv_file)
+    #     for row in csv_reader:
+    #         print(' '.join(row))
 
 
 if __name__ == '__main__':
