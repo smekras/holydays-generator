@@ -86,11 +86,6 @@ def main():
             link = s[i.date.month][i.date.day]["link"]
             csv_writer.writerow([date, rel, names, gap, sec, fast, moon, link])
 
-    # with open("%s.csv" % y, "r") as csv_file:
-    #     csv_reader = csv.reader(csv_file)
-    #     for row in csv_reader:
-    #         print(' '.join(row))
-
 
 if __name__ == '__main__':
     main()
