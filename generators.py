@@ -2775,7 +2775,7 @@ secular_fixed = {
              "link": "https://el.wikipedia.org/wiki/18_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         19: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/19_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
-        20: {"holiday": [2],
+        20: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/20_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         21: {"holiday": [3],
              "link": "https://el.wikipedia.org/wiki/21_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
