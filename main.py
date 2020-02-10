@@ -43,7 +43,7 @@ def assemble_names(date):
             for _ in name:
                 names.append(_)
 
-    return names
+    return set(names)
 
 
 def assemble_secular(date):
@@ -62,7 +62,7 @@ def main():
     fasts = fasting.generate_fasts(y)
 
     for i in days:
-        if i.month > 2 or (i.month == 2 and i.day > 2):
+        if i.month > 2 or (i.month == 2 and i.day > 3):
             religious = [0]
             names = [0]
             secular = [0]
