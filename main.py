@@ -7,6 +7,7 @@ email: stergios.mekras@gmail.com
 import csv
 
 import holycalendar
+from dicts import months
 from generators import religious_fixed as r, secular_fixed as s
 from holyday import Holyday
 from utils import moonphase, fasting
@@ -61,14 +62,15 @@ def main():
     fasts = fasting.generate_fasts(y)
 
     for i in days:
-        if i.month < 2 and i.day < 32:
-            religious = assemble_holidays(i)
-            names = assemble_names(i)
-            secular = assemble_secular(i)
-        else:
+        if i.month > 2 or (i.month == 2 and i.day > 2):
             religious = [0]
             names = [0]
             secular = [0]
+        else:
+            religious = assemble_holidays(i)
+            names = assemble_names(i)
+            secular = assemble_secular(i)
+
         phase, name, pos = moonphase.get_info(i)
         fast = fasts[i.month][i.day - 1]
         holydays.append(Holyday(i, religious, names, fast, secular, phase))
@@ -77,6 +79,13 @@ def main():
         csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for i in holydays:
             date = i.get_date()
+            day = str(date)[-2:]
+            if day == "01":
+                full_date = str(date)[:-2] + "00"
+                index = int(str(date)[4:6])
+                month = months[index]["name"]
+                link = months[index]["link"]
+                csv_writer.writerow([full_date, month, "", "", "", "", "", link])
             rel = i.get_religious()
             names = i.get_namelist()
             gap = ""

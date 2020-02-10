@@ -6,9 +6,6 @@ email: stergios.mekras@gmail.com
 
 religious_fixed = {
     1: {
-        0: {
-            0: {"holiday": 293}
-        },
         1: {
             0: {"holiday": 0,
                 "names_primary": [],
@@ -195,7 +192,7 @@ religious_fixed = {
         },
         7: {
             0: {"holiday": 42,
-                "names_primary": [323, 566],
+                "names_primary": [323, 556],
                 "names_secondary": [],
                 "names_unofficial": []},
             1: {"holiday": 43,
@@ -1245,17 +1242,94 @@ religious_fixed = {
         }
     },
     2: {
-        0: {
-            0: {"holiday": 294}
+        1: {
+            0: {"holiday": 293,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            1: {"holiday": 294,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            2: {"holiday": 295,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            3: {"holiday": 296,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            4: {"holiday": 297,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            5: {"holiday": 298,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            6: {"holiday": 299,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            7: {"holiday": 300,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            8: {"holiday": 301,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            9: {"holiday": 302,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            10: {"holiday": 303,
+                 "names_primary": [],
+                 "names_secondary": [],
+                 "names_unofficial": []},
         },
-        1: {"holiday": 0,
-            "names_primary": [],
-            "names_secondary": [],
-            "names_unofficial": []},
-        2: {"holiday": 0,
-            "names_primary": [],
-            "names_secondary": [],
-            "names_unofficial": []},
+        2: {
+            0: {"holiday": 304,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            1: {"holiday": 305,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            2: {"holiday": 306,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            3: {"holiday": 307,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            4: {"holiday": 308,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            5: {"holiday": 309,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            6: {"holiday": 310,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            7: {"holiday": 311,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            8: {"holiday": 312,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+            9: {"holiday": 313,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+        },
         3: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -1366,9 +1440,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     3: {
-        0: {
-            0: {"holiday": 295}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -1495,9 +1566,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     4: {
-        0: {
-            0: {"holiday": 296}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -1620,9 +1688,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     5: {
-        0: {
-            0: {"holiday": 297}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -1749,9 +1814,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     6: {
-        0: {
-            0: {"holiday": 298}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -1874,9 +1936,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     7: {
-        0: {
-            0: {"holiday": 299}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2003,9 +2062,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     8: {
-        0: {
-            0: {"holiday": 300}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2132,9 +2188,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     9: {
-        0: {
-            0: {"holiday": 301}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2257,9 +2310,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     10: {
-        0: {
-            0: {"holiday": 302}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2386,9 +2436,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     11: {
-        0: {
-            0: {"holiday": 303}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2511,9 +2558,6 @@ religious_fixed = {
              "names_unofficial": []},
     },
     12: {
-        0: {
-            0: {"holiday": 304}
-        },
         1: {"holiday": 0,
             "names_primary": [],
             "names_secondary": [],
@@ -2643,8 +2687,6 @@ religious_fixed = {
 
 secular_fixed = {
     1: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%AC%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [0],
             "link": "https://el.wikipedia.org/wiki/1_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -2708,8 +2750,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
     }, 2: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%A6%CE%B5%CE%B2%CF%81%CE%BF%CF%85%CE%AC%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%A6%CE%B5%CE%B2%CF%81%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -2769,8 +2809,6 @@ secular_fixed = {
         29: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/29_%CE%A6%CE%B5%CE%B2%CF%81%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
     }, 3: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%9C%CE%AC%CF%81%CF%84%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%9C%CE%B1%CF%81%CF%84%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -2834,8 +2872,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%9C%CE%B1%CF%81%CF%84%CE%AF%CE%BF%CF%85"},
     }, 4: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%91%CF%80%CF%81%CE%AF%CE%BB%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%91%CF%80%CF%81%CE%B9%CE%BB%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -2897,8 +2933,6 @@ secular_fixed = {
         30: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/30_%CE%91%CF%80%CF%81%CE%B9%CE%BB%CE%AF%CE%BF%CF%85"}
     }, 5: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%9C%CE%AC%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%9C%CE%B1%CE%90%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -2962,8 +2996,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%9C%CE%B1%CE%90%CE%BF%CF%85"},
     }, 6: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%99%CE%BF%CF%8D%CE%BD%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%99%CE%BF%CF%85%CE%BD%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3025,8 +3057,6 @@ secular_fixed = {
         30: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/30_%CE%99%CE%BF%CF%85%CE%BD%CE%AF%CE%BF%CF%85"},
     }, 7: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%99%CE%BF%CF%8D%CE%BB%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%99%CE%BF%CF%85%CE%BB%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3090,8 +3120,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%99%CE%BF%CF%85%CE%BB%CE%AF%CE%BF%CF%85"},
     }, 8: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%91%CF%8D%CE%B3%CE%BF%CF%85%CF%83%CF%84%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%91%CF%85%CE%B3%CE%BF%CF%8D%CF%83%CF%84%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3155,8 +3183,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%91%CF%85%CE%B3%CE%BF%CF%8D%CF%83%CF%84%CE%BF%CF%85"},
     }, 9: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%A3%CE%B5%CF%80%CF%84%CE%AD%CE%BC%CE%B2%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%A3%CE%B5%CF%80%CF%84%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3218,8 +3244,6 @@ secular_fixed = {
         30: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/30_%CE%A3%CE%B5%CF%80%CF%84%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
     }, 10: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%9F%CE%BA%CF%84%CF%8E%CE%B2%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%9F%CE%BA%CF%84%CF%89%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3283,8 +3307,6 @@ secular_fixed = {
         31: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/31_%CE%9F%CE%BA%CF%84%CF%89%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
     }, 11: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%9D%CE%BF%CE%AD%CE%BC%CE%B2%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%9D%CE%BF%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
@@ -3346,8 +3368,6 @@ secular_fixed = {
         30: {"holiday": [],
              "link": "https://el.wikipedia.org/wiki/30_%CE%9D%CE%BF%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
     }, 12: {
-        0: {"holiday": [],
-            "link": "https://el.wikipedia.org/wiki/%CE%94%CE%B5%CE%BA%CE%AD%CE%BC%CE%B2%CF%81%CE%B9%CE%BF%CF%82"},
         1: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/1_%CE%94%CE%B5%CE%BA%CE%B5%CE%BC%CE%B2%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
