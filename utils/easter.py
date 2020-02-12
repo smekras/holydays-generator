@@ -89,3 +89,10 @@ def easter(year, method=EASTER_WESTERN):
     d = 1 + (p + 27 + (p + 6) // 40) % 31
     m = 3 + (p + 26) // 30
     return datetime.date(int(y), int(m), int(d))
+
+
+def next_weekday(date, day):
+    offset = day - date.weekday()
+    if offset <= 0:
+        offset += 7
+    return date + datetime.timedelta(offset)

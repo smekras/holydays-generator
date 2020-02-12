@@ -10,7 +10,7 @@ import holycalendar
 from dicts import months
 from generators import religious_fixed as r, secular_fixed as s
 from holyday import Holyday
-from utils import moonphase, fasting
+from utils import fasting, moonphase
 
 variant = "archaic"
 holydays = []
