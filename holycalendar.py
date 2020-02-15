@@ -7,6 +7,8 @@ email: stergios.mekras@gmail.com
 import calendar
 import datetime
 
+from utils import easter
+
 
 class HolyCalendar(calendar.Calendar):
     def __init__(self, year):
@@ -25,9 +27,52 @@ class HolyCalendar(calendar.Calendar):
         days = list(dict.fromkeys(days))
         return days
 
-    def last_weekday(self, month, day):
-        l_day = max(week[day] for week in self.monthdayscalendar(self.year, month))
+    def get_religious_moving(self, e):
+        moving = {}
+        pasxa = easter.easter(self.year, 2)
+
+        for k in e.keys():
+            v = e[k]["date"]
+            if k in [336, 337]:
+                date = self.next_weekday(v[1], v[2], v[0])
+            elif k in [338, 339] and pasxa < datetime.date(self.year, 4, 23):
+                date = datetime.date(self.year, v[1], v[2])
+            else:
+                date = pasxa + datetime.timedelta(v[0])
+            moving[k] = date
+            print(pasxa, date)
+        return moving
+
+    def get_secular_moving(self, m):
+        moving = {}
+
+        for k in m.keys():
+            v = m[k]
+            if len(v) > 2:
+                date = self.weekday_of_month(v[0], v[1], v[2])
+                if date.month == 2 and date.day == 1:
+                    date += datetime.timedelta(1)
+            else:
+                date = self.last_weekday(v[0], v[1])
+            moving[k] = date
+
+            if k == 19:
+                last_key = list(m.keys())[-1]
+                date2 = date + datetime.timedelta(1)
+                moving[last_key + 1] = date2
+
+        return moving
+
+    def last_weekday(self, day, month):
+        l_day = max(week[day - 1] for week in calendar.monthcalendar(self.year, month))
         return datetime.date(self.year, month, l_day)
+
+    def next_weekday(self, day, month, target):
+        start = datetime.date(self.year, month, day)
+        offset = target - start.weekday()
+        if offset <= 0:
+            offset += 7
+        return start + datetime.timedelta(offset - 1)
 
     def weekday_of_month(self, number, target, month):
         days = {0: calendar.SUNDAY,

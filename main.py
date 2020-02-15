@@ -6,9 +6,9 @@ email: stergios.mekras@gmail.com
 
 import csv
 
-import holycalendar
+import holycalendar as h
 from dicts import months
-from generators import religious_fixed as r, secular_fixed as s
+from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m
 from holyday import Holyday
 from utils import fasting, moonphase
 
@@ -16,12 +16,16 @@ variant = "archaic"
 holydays = []
 
 
-def assemble_holidays(date):
+def assemble_holidays(date, easter):
     holidays = []
     for i in r[date.month][date.day]:
         holiday = r[date.month][date.day][i]["holiday"]
         holidays.append(holiday)
 
+    if date in easter.values():
+        mov_rel = [key for key, value in easter.items() if value == date]
+        for _ in mov_rel:
+            holidays.append(_)
     return holidays
 
 
@@ -46,20 +50,27 @@ def assemble_names(date):
     return set(names)
 
 
-def assemble_secular(date):
+def assemble_secular(date, moving):
     secular = []
     if date.day in s[date.month].keys():
         for i in s[date.month][date.day]["holiday"]:
             secular.append(i)
+
+    if date in moving.values():
+        mov_sec = [key for key, value in moving.items() if value == date]
+        for _ in mov_sec:
+            secular.append(_)
 
     return secular
 
 
 def main():
     y = int(input("Year: "))
-    cal = holycalendar.HolyCalendar(y)
+    cal = h.HolyCalendar(y)
     days = cal.get_all_days()
     fasts = fasting.generate_fasts(y)
+    moving = cal.get_secular_moving(m)
+    easter = cal.get_religious_moving(e)
 
     for i in days:
         if i.month > 2 or (i.month == 2 and i.day > 3):
@@ -67,9 +78,9 @@ def main():
             names = [0]
             secular = [0]
         else:
-            religious = assemble_holidays(i)
+            religious = assemble_holidays(i, easter)
             names = assemble_names(i)
-            secular = assemble_secular(i)
+            secular = assemble_secular(i, moving)
 
         phase, name, pos = moonphase.get_info(i)
         fast = fasts[i.month][i.day - 1]
