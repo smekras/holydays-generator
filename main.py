@@ -73,7 +73,7 @@ def main():
     easter = cal.get_religious_moving(e)
 
     for i in days:
-        if i.month > 2 or (i.month == 2 and i.day > 5):
+        if i.month > 2 or (i.month == 2 and i.day > 10):
             religious = [0]
             names = [0]
             secular = [0]
