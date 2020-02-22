@@ -94,7 +94,7 @@ def main():
 
     for i in days:
         # temp check until all the generators are done
-        if i.month > 2 or (i.month == 2 and i.day > 21):
+        if i.month > 2 or (i.month == 2 and i.day > 22):
             religious = [0]
             names = [0]
             secular = [0]
