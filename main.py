@@ -18,19 +18,38 @@ holydays = []
 
 def assemble_holidays(date, easter):
     holidays = []
-    for i in r[date.month][date.day]:
-        holiday = r[date.month][date.day][i]["holiday"]
-        holidays.append(holiday)
 
+    # put moving holidays before fixed
     if date in easter.values():
         mov_rel = [key for key, value in easter.items() if value == date]
         for _ in mov_rel:
             holidays.append(_)
+
+    for i in r[date.month][date.day]:
+        holiday = r[date.month][date.day][i]["holiday"]
+        holidays.append(holiday)
     return holidays
 
 
-def assemble_names(date):
+def assemble_names(date, namedays):
     names = []
+
+    # names from moving holidays
+    for _ in namedays:
+        if _ in e.keys():
+            primary = e[_]["names_primary"]
+            for n in primary:
+                names.append(n)
+
+            secondary = e[_]["names_secondary"]
+            for n in secondary:
+                names.append(n)
+
+            unofficial = e[_]["names_unofficial"]
+            for n in unofficial:
+                names.append(n)
+
+    # names from fixed holidays
     for i in r[date.month][date.day]:
         name = r[date.month][date.day][i]["names_primary"]
         for _ in name:
@@ -47,11 +66,12 @@ def assemble_names(date):
             for _ in name:
                 names.append(_)
 
-    return set(names)
+    return sorted(set(names), key=names.index)
 
 
 def assemble_secular(date, moving):
     secular = []
+
     if date.day in s[date.month].keys():
         for i in s[date.month][date.day]["holiday"]:
             secular.append(i)
@@ -73,13 +93,14 @@ def main():
     easter = cal.get_religious_moving(e)
 
     for i in days:
-        if i.month > 2 or (i.month == 2 and i.day > 10):
+        # temp check until all the generators are done
+        if i.month > 2 or (i.month == 2 and i.day > 18):
             religious = [0]
             names = [0]
             secular = [0]
         else:
             religious = assemble_holidays(i, easter)
-            names = assemble_names(i)
+            names = assemble_names(i, religious)
             secular = assemble_secular(i, moving)
 
         phase, name, pos = moonphase.get_info(i)
