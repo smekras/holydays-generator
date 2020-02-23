@@ -4,7 +4,6 @@ author: Stergios Mekras
 email: stergios.mekras@gmail.com
 """
 
-
 religious_fixed = {
     1: {
         1: {
@@ -3248,10 +3247,12 @@ religious_fixed = {
              "names_primary": [],
              "names_secondary": [],
              "names_unofficial": []},
-        13: {"holiday": 0,
-             "names_primary": [],
-             "names_secondary": [],
-             "names_unofficial": []},
+        13: {
+            0: {"holiday": 0,
+                "names_primary": [],
+                "names_secondary": [],
+                "names_unofficial": []},
+        },
         14: {"holiday": 0,
              "names_primary": [],
              "names_secondary": [],
