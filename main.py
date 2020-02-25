@@ -10,7 +10,7 @@ import holycalendar as h
 from dicts import months
 from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m
 from holyday import Holyday
-from utils import fasting, moonphase
+from utils import fasting, moonphase, tools
 
 variant = "archaic"
 holydays = []
@@ -84,8 +84,7 @@ def assemble_secular(date, moving):
     return secular
 
 
-def main():
-    y = int(input("Year: "))
+def main(y):
     cal = h.HolyCalendar(y)
     days = cal.get_all_days()
     fasts = fasting.generate_fasts(y)
@@ -94,7 +93,7 @@ def main():
 
     for i in days:
         # temp check until all the generators are done
-        if i.month > 3 or (i.month == 3 and i.day > 22):
+        if i.month > 3 or (i.month == 3 and i.day > 24):
             religious = [0]
             names = [0]
             secular = [0]
@@ -128,5 +127,9 @@ def main():
             csv_writer.writerow([date, rel, names, gap, sec, fast, moon, link])
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
+
+tools.check_doubles()
+main(2015)
+main(2020)
