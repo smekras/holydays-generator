@@ -56,7 +56,6 @@ class HolyCalendar(calendar.Calendar):
 
         for k in o.keys():
             v = o[k]
-            last_key = list(o.keys())[-1]
 
             if len(v) > 1:
                 date = datetime.date(self.year, v[0], v[1])

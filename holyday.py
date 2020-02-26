@@ -42,7 +42,7 @@ class Holyday:
     def get_off_days(self):
         off = []
         for sec in self.off:
-            off.append(dicts.secular_off[sec])
+            off.append(dicts.off_days[sec])
         offstr = ','.join(off)
 
         return offstr
