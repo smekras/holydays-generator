@@ -46,6 +46,8 @@ class HolyCalendar(calendar.Calendar):
                 date = datetime.date(self.year, v[1], v[2])
             elif k == 350:
                 date = self.weekday_of_month(v[0], v[1], v[2])
+            elif k == 1102:
+                date = self.last_day_before(v[0], v[1], v[2])
             else:
                 date = self.pasxa + datetime.timedelta(v[0])
             moving[k] = date
