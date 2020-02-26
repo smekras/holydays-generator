@@ -5421,7 +5421,7 @@ religious_moving = {
 
 secular_fixed = {
     1: {
-        1: {"holiday": [0, 1],
+        1: {"holiday": [1],
             "link": "https://el.wikipedia.org/wiki/1_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         2: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/2_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
@@ -5431,7 +5431,7 @@ secular_fixed = {
             "link": "https://el.wikipedia.org/wiki/4_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         5: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/5_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
-        6: {"holiday": [3],
+        6: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/6_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
         7: {"holiday": [],
             "link": "https://el.wikipedia.org/wiki/7_%CE%99%CE%B1%CE%BD%CE%BF%CF%85%CE%B1%CF%81%CE%AF%CE%BF%CF%85"},
@@ -6239,6 +6239,13 @@ secular_moving = {
     1061: [3, 0, 11],
     1062: [3, 3, 11],
     1063: [6, 11],
-    1064: [-2],
-    1065: [-1],
+}
+
+secular_off = {
+    0: [1, 1],
+    1: [1, 6],
+    2: [3, 25],
+    3: [-48],
+    4: [-2],
+    5: [-1],
 }

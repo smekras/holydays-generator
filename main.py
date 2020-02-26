@@ -8,7 +8,8 @@ import csv
 
 import holycalendar as h
 from dicts import months
-from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m
+from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m, \
+    secular_off as o
 from holyday import Holyday
 from utils import fasting, moonphase, tools
 
@@ -69,6 +70,17 @@ def assemble_names(date, namedays):
     return sorted(set(names), key=names.index)
 
 
+def assemble_off(date, off):
+    off_list = []
+
+    if date in off.values():
+        off_sec = [key for key, value in off.items() if value == date]
+        for _ in off_sec:
+            off_list.append(_)
+
+    return off_list
+
+
 def assemble_secular(date, moving):
     secular = []
 
@@ -89,6 +101,7 @@ def main(y):
     days = cal.get_all_days()
     fasts = fasting.generate_fasts(y)
     moving = cal.get_secular_moving(m)
+    off_days = cal.get_off_days(o)
     easter = cal.get_religious_moving(e)
 
     for i in days:
@@ -96,15 +109,17 @@ def main(y):
         if i.month > 4 or (i.month == 4 and i.day > 12):
             religious = [0]
             names = [0]
-            secular = [0]
+            off = [0]
+            secular = [1]
         else:
             religious = assemble_holidays(i, easter)
             names = assemble_names(i, religious)
+            off = assemble_off(i, off_days)
             secular = assemble_secular(i, moving)
 
         phase, name, pos = moonphase.get_info(i)
         fast = fasts[i.month][i.day - 1]
-        holydays.append(Holyday(i, religious, names, fast, secular, phase))
+        holydays.append(Holyday(i, religious, names, fast, off, secular, phase))
 
     with open("files/%s.csv" % y, "w+") as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -119,12 +134,12 @@ def main(y):
                 csv_writer.writerow([full_date, month, "", "", "", "", "", link])
             rel = i.get_religious()
             names = i.get_namelist()
-            gap = ""
+            off = i.get_off_days()
             sec = i.get_secular()
             fast = i.fast  # fast = f[i.fast][variant]
             moon = i.moonphase  # moon = p[i.moonphase][variant]
             link = s[i.date.month][i.date.day]["link"]
-            csv_writer.writerow([date, rel, names, gap, sec, fast, moon, link])
+            csv_writer.writerow([date, rel, names, off, sec, fast, moon, link])
 
 
 # if __name__ == '__main__':

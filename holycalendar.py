@@ -51,6 +51,22 @@ class HolyCalendar(calendar.Calendar):
             moving[k] = date
         return moving
 
+    def get_off_days(self, o):
+        off_days = {}
+
+        for k in o.keys():
+            v = o[k]
+            last_key = list(o.keys())[-1]
+
+            if len(v) > 1:
+                date = datetime.date(self.year, v[0], v[1])
+            else:
+                date = self.pasxa + datetime.timedelta(v[0])
+
+            off_days[k] = date
+
+        return off_days
+
     def get_secular_moving(self, m):
         moving = {}
 

@@ -10,11 +10,12 @@ import dicts
 
 
 class Holyday:
-    def __init__(self, date=datetime.now(), religious=None, namelist=None, fast=0, secular=None, moonphase=0):
+    def __init__(self, date=datetime.now(), religious=None, namelist=None, fast=0, off=None, secular=None, moonphase=0):
         self.date = date
         self.religious = religious
         self.namelist = namelist
         self.fast = fast
+        self.off = off
         self.secular = secular
         self.moonphase = moonphase
 
@@ -37,6 +38,14 @@ class Holyday:
 
     def get_fast(self):
         return dicts.fasting[self.fast]
+
+    def get_off_days(self):
+        off = []
+        for sec in self.off:
+            off.append(dicts.secular_off[sec])
+        offstr = ','.join(off)
+
+        return offstr
 
     def get_secular(self):
         secular = []
