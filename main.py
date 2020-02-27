@@ -106,7 +106,7 @@ def main(y):
 
     for i in days:
         # temp check until all the generators are done
-        if i.month > 4 or (i.month == 4 and i.day > 30):
+        if i.month > 5 or (i.month == 5 and i.day > 2):
             religious = [0]
             names = [0]
             off = [0]
