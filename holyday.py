@@ -40,12 +40,18 @@ class Holyday:
         return dicts.fasting[self.fast]
 
     def get_off_days(self):
-        off = []
-        for sec in self.off:
-            off.append(dicts.off_days[sec])
-        offstr = ','.join(off)
+        off_list = []
 
-        return offstr
+        if len(self.off) == 0:
+            off_list.append("")
+        else:
+            for _ in self.off:
+                print(_)
+                off_list.append(str(_))
+                print(off_list)
+        off_desc = ','.join(off_list)
+
+        return off_desc
 
     def get_secular(self):
         secular = []

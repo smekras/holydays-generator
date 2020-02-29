@@ -7,6 +7,7 @@ email: stergios.mekras@gmail.com
 import calendar
 import datetime
 
+from dicts import off_days as o
 from utils import easter
 
 
@@ -53,19 +54,24 @@ class HolyCalendar(calendar.Calendar):
             moving[k] = date
         return moving
 
-    def get_off_days(self, o):
-        off_days = {}
+    def get_off_days(self):
+        off_days = o
 
         for k in o.keys():
-            v = o[k]
+            v = o[k]["date"]
 
-            if len(v) > 1:
-                date = datetime.date(self.year, v[0], v[1])
-            else:
+            if len(v) == 1:
                 date = self.pasxa + datetime.timedelta(v[0])
+            else:
+                date = datetime.date(self.year, v[0], v[1])
 
-            off_days[k] = date
+                if k in [3, 7, 10, 11] and date.weekday() == 0:
+                    date -= datetime.timedelta(-1)
 
+                if k == 3 and self.pasxa < datetime.date(self.year, 4, 23):
+                    date = self.pasxa + datetime.timedelta(1)
+
+            off_days[k]["date"] = date
         return off_days
 
     def get_secular_moving(self, m):

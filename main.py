@@ -7,9 +7,8 @@ email: stergios.mekras@gmail.com
 import csv
 
 import holycalendar as h
-from dicts import months
-from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m, \
-    secular_off as o
+from dicts import months, off_days as o
+from generators import religious_fixed as r, religious_moving as e, secular_fixed as s, secular_moving as m
 from holyday import Holyday
 from utils import fasting, moonphase, tools
 
@@ -72,12 +71,15 @@ def assemble_names(date, namedays):
 
 def assemble_off(date, off):
     off_list = []
+    dates = []
 
-    if date in off.values():
-        off_sec = [key for key, value in off.items() if value == date]
-        for _ in off_sec:
-            off_list.append(_)
+    for k in off.keys():
+        dates.append(off[k]["date"])
 
+    if date in dates:
+        for key, value in off.items():
+            if o[key]["date"] == date:
+                off_list.append(off[key]["desc"])
     return off_list
 
 
@@ -101,7 +103,7 @@ def main(y):
     days = cal.get_all_days()
     fasts = fasting.generate_fasts(y)
     moving = cal.get_secular_moving(m)
-    off_days = cal.get_off_days(o)
+    off_days = cal.get_off_days()
     easter = cal.get_religious_moving(e)
 
     for i in days:
@@ -147,4 +149,4 @@ def main(y):
 
 tools.check_doubles()
 main(2015)
-main(2020)
+# main(2020)
