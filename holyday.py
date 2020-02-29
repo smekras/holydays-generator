@@ -46,9 +46,8 @@ class Holyday:
             off_list.append("")
         else:
             for _ in self.off:
-                print(_)
                 off_list.append(str(_))
-                print(off_list)
+
         off_desc = ','.join(off_list)
 
         return off_desc

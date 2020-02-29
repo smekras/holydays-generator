@@ -80,6 +80,7 @@ def assemble_off(date, off):
         for key, value in off.items():
             if o[key]["date"] == date:
                 off_list.append(off[key]["desc"])
+
     return off_list
 
 
@@ -108,7 +109,7 @@ def main(y):
 
     for i in days:
         # temp check until all the generators are done
-        if i.month > 6 or (i.month == 6 and i.day > 2):
+        if i.month > 6 or (i.month == 6 and i.day > 4):
             religious = [0]
             names = [0]
             off = [0]

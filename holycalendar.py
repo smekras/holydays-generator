@@ -68,7 +68,7 @@ class HolyCalendar(calendar.Calendar):
                 if k in [3, 7, 10, 11] and date.weekday() == 0:
                     date -= datetime.timedelta(-1)
 
-                if k == 3 and self.pasxa < datetime.date(self.year, 4, 23):
+                if k == 3 and self.pasxa > datetime.date(self.year, 4, 23):
                     date = self.pasxa + datetime.timedelta(1)
 
             off_days[k]["date"] = date
