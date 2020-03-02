@@ -108,18 +108,10 @@ def main(y):
     easter = cal.get_religious_moving(e)
 
     for i in days:
-        # temp check until all the generators are done
-        if i.month > 7 or (i.month == 7 and i.day > 31):
-            religious = [0]
-            names = [0]
-            off = [0]
-            secular = [1]
-        else:
-            religious = assemble_holidays(i, easter)
-            names = assemble_names(i, religious)
-            off = assemble_off(i, off_days)
-            secular = assemble_secular(i, moving)
-
+        religious = assemble_holidays(i, easter)
+        names = assemble_names(i, religious)
+        off = assemble_off(i, off_days)
+        secular = assemble_secular(i, moving)
         phase, name, pos = moonphase.get_info(i)
         fast = fasts[i.month][i.day - 1]
         holydays.append(Holyday(i, religious, names, fast, off, secular, phase))

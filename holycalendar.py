@@ -7,7 +7,7 @@ email: stergios.mekras@gmail.com
 import calendar
 import datetime
 
-from dicts import off_days as o
+from dicts import off_days as o, secular as s
 from utils import easter
 
 
@@ -109,16 +109,20 @@ class HolyCalendar(calendar.Calendar):
                         for i in range(1, 7):
                             date2 = date + datetime.timedelta(i)
                             moving[last_key + i] = date2
+                            s[last_key + i] = s[k]
                     if k == 1024:
                         date2 = self.weekday_of_month(v[0], v[1], v[3])
                         moving[last_key + 1] = date2
+                        s[last_key + 1] = s[k]
                     if k == 1042:
                         for i in range[1, 3]:
                             date2 = date + datetime.timedelta(i)
                             moving[last_key + i] = date2
+                            s[last_key + i] = s[k]
                     if k == 1045:
                         date2 = date + datetime.timedelta(1)
                         moving[last_key + 1] = date2
+                        s[last_key + 1] = s[k]
                 elif len(v) == 1:
                     date = self.pasxa + datetime.timedelta(v[0])
                 else:
