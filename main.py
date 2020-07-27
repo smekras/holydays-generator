@@ -117,7 +117,7 @@ def main(y):
         fast = fasts[i.month][i.day - 1]
         holydays.append(Holyday(i, religious, names, fast, off, secular, phase))
 
-    with open("files/%s.csv" % y, "w+") as csv_file:
+    with open("files/%s.csv" % y, "w+", encoding='utf-8') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for i in holydays:
             date = i.get_date()
@@ -128,6 +128,7 @@ def main(y):
                 month = months[index]["name"]
                 link = months[index]["link"]
                 csv_writer.writerow([full_date, month, "", "", "", "", "", link])
+
             rel = i.get_religious()
             names = i.get_namelist()
             off = i.get_off_days()
@@ -138,6 +139,8 @@ def main(y):
             csv_writer.writerow([date, rel, names, off, sec, fast, moon, link])
 
     with open("files/%s.json" % y, "w+") as json_file:
+        json_data = {}
+
         for i in holydays:
             date = i.get_date()
             day = str(date)[-2:]
@@ -146,7 +149,16 @@ def main(y):
                 index = int(str(date)[4:6])
                 month = months[index]["name"]
                 link = months[index]["link"]
-                json.dump([full_date, month, "", "", "", "", "", link], json_file)
+                json_data.update({
+                    "dayId": full_date,
+                    "rel": month,
+                    "names": "",
+                    "off": "",
+                    "sec": "",
+                    "fast": "",
+                    "moon": "",
+                    "link": link
+                })
             rel = i.get_religious()
             names = i.get_namelist()
             off = i.get_off_days()
@@ -154,11 +166,22 @@ def main(y):
             fast = i.fast  # fast = f[i.fast][variant]
             moon = i.moonphase  # moon = p[i.moonphase][variant]
             link = s[i.date.month][i.date.day]["link"]
-            json.dump([date, rel, names, off, sec, fast, moon, link], json_file)
+            json_data.update({
+                "dayId": date,
+                "rel": rel,
+                "names": names,
+                "off": off,
+                "sec": sec,
+                "fast": fast,
+                "moon": moon,
+                "link": link
+            })
+        json.dump([json_data], json_file, ensure_ascii=False)
 
 # if __name__ == '__main__':
 #     main()
 
+
 tools.check_doubles()
-main(2015)
-# main(2020)
+# main(2015)
+main(2020)
