@@ -5,6 +5,7 @@ email: stergios.mekras@gmail.com
 """
 
 import csv
+import json
 
 import holycalendar as h
 from dicts import months, off_days as o
@@ -136,6 +137,24 @@ def main(y):
             link = s[i.date.month][i.date.day]["link"]
             csv_writer.writerow([date, rel, names, off, sec, fast, moon, link])
 
+    with open("files/%s.json" % y, "w+") as json_file:
+        for i in holydays:
+            date = i.get_date()
+            day = str(date)[-2:]
+            if day == "01":
+                full_date = str(date)[:-2] + "00"
+                index = int(str(date)[4:6])
+                month = months[index]["name"]
+                link = months[index]["link"]
+                json.dump([full_date, month, "", "", "", "", "", link], json_file)
+            rel = i.get_religious()
+            names = i.get_namelist()
+            off = i.get_off_days()
+            sec = i.get_secular()
+            fast = i.fast  # fast = f[i.fast][variant]
+            moon = i.moonphase  # moon = p[i.moonphase][variant]
+            link = s[i.date.month][i.date.day]["link"]
+            json.dump([date, rel, names, off, sec, fast, moon, link], json_file)
 
 # if __name__ == '__main__':
 #     main()

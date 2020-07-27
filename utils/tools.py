@@ -26,4 +26,4 @@ def csv_to_json(csv_file, json_file):
     # json.dump(json_data, json_file)
 
 
-csv_to_json('../files/2020.csv', '../files/2020.json')
+# csv_to_json('../files/2020.csv', '../files/2020.json')
