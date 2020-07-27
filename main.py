@@ -139,7 +139,7 @@ def main(y):
             csv_writer.writerow([date, rel, names, off, sec, fast, moon, link])
 
     with open("files/%s.json" % y, "w+") as json_file:
-        json_data = {}
+        json_data = []
 
         for i in holydays:
             date = i.get_date()
@@ -149,7 +149,7 @@ def main(y):
                 index = int(str(date)[4:6])
                 month = months[index]["name"]
                 link = months[index]["link"]
-                json_data.update({
+                json_data.append({
                     "dayId": full_date,
                     "rel": month,
                     "names": "",
@@ -166,7 +166,7 @@ def main(y):
             fast = i.fast  # fast = f[i.fast][variant]
             moon = i.moonphase  # moon = p[i.moonphase][variant]
             link = s[i.date.month][i.date.day]["link"]
-            json_data.update({
+            json_data.append({
                 "dayId": date,
                 "rel": rel,
                 "names": names,
@@ -176,7 +176,7 @@ def main(y):
                 "moon": moon,
                 "link": link
             })
-        json.dump([json_data], json_file, ensure_ascii=False)
+        json.dump(json_data, json_file, ensure_ascii=False)
 
 # if __name__ == '__main__':
 #     main()
